@@ -5,6 +5,18 @@
 //  Created by Frank Solleveld on 11/12/2020.
 //
 
+/*
+ CHALLENGE TIME
+ 
+ 1. Try showing the player's score in the navigation bar, alongside the flag to guess.
+ 2. Keep track of how many questions have been asked, and show one final alert after they've answered 10.
+ 3. When someone chooses the wrong flag, tell them their mistake in your alert message.
+
+ EXTRA
+ 1. Resolve the bug where images sometimes don't load.
+ 
+ */
+
 import UIKit
 
 class ViewController: UIViewController {
