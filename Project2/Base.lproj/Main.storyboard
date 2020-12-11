@@ -37,10 +37,18 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGV-Mq-7b3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJZ-55-vy8">
+                                <rect key="frame" x="207" y="486" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oJZ-55-vy8" firstAttribute="centerX" secondItem="iAL-0P-RUy" secondAttribute="centerX" id="2vJ-Hj-u5J"/>
+                            <constraint firstItem="oJZ-55-vy8" firstAttribute="top" secondItem="iAL-0P-RUy" secondAttribute="bottom" constant="26" id="786-gP-laO"/>
                             <constraint firstItem="yYf-0O-cbv" firstAttribute="centerX" secondItem="Pfm-rT-ifK" secondAttribute="centerX" id="7FW-e3-VbP"/>
                             <constraint firstItem="yYf-0O-cbv" firstAttribute="top" secondItem="Pfm-rT-ifK" secondAttribute="bottom" constant="30" id="as1-Dd-2pZ"/>
                             <constraint firstItem="iAL-0P-RUy" firstAttribute="top" secondItem="yYf-0O-cbv" secondAttribute="bottom" constant="30" id="bQa-j6-kwP"/>
@@ -54,6 +62,7 @@
                         <outlet property="button1" destination="Pfm-rT-ifK" id="NPY-yF-WtF"/>
                         <outlet property="button2" destination="yYf-0O-cbv" id="sfz-KG-hM5"/>
                         <outlet property="button3" destination="iAL-0P-RUy" id="UMv-hn-rw6"/>
+                        <outlet property="questionsLabel" destination="oJZ-55-vy8" id="wHR-Og-CxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

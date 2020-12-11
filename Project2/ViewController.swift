@@ -5,14 +5,6 @@
 //  Created by Frank Solleveld on 11/12/2020.
 //
 
-/*
- CHALLENGE TIME
-
- 1. Keep track of how many questions have been asked, and show one final alert after they've answered 10.
- 2. When someone chooses the wrong flag, tell them their mistake in your alert message.
- 
- */
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -21,15 +13,18 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    @IBOutlet var questionsLabel: UILabel!
     
     // MARK: -- Custom Variables
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var numOfQuestionsAnswered = 0
     
     // MARK: -- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateQuestionsLabel()
         if(countries.count == 0) {
             fillTheCountriesArray()
         }
@@ -38,6 +33,10 @@ class ViewController: UIViewController {
     }
     
     // MARK: -- Custom Methods
+    func updateQuestionsLabel(){
+        questionsLabel.text = "You answered \(numOfQuestionsAnswered) out of 10 questions."
+    }
+    
     func fillTheCountriesArray(){
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
     }
@@ -54,6 +53,7 @@ class ViewController: UIViewController {
     }
     
     func askQuestion(action: UIAlertAction!){
+        guard numOfQuestionsAnswered != 10 else { return showEndOfGameAlert() }
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         button1.setImage(UIImage(named: countries[0]), for: .normal)
@@ -62,20 +62,45 @@ class ViewController: UIViewController {
         title = "\(countries[correctAnswer].uppercased()) (Current score: \(score))"
     }
     
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        var title: String
-        if sender.tag == correctAnswer {
-            title = "Correct"
-            score += 1
-        } else {
-            title = "Wrong"
-            score -= 1
-        }
-        
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-        
+    func resetGame(action: UIAlertAction!) {
+        score = 0
+        numOfQuestionsAnswered = 0
+        updateQuestionsLabel()
+        askQuestion(action: nil)
+    }
+    
+    func showCorrectAlert(alertTitle: String){
+        let ac = UIAlertController(title: alertTitle, message: "Your score is \(score).", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        
         present(ac, animated: true)
+    }
+    
+    func showWrongStatus(alertTitle: String, senderTag: Int){
+        let ac = UIAlertController(title: alertTitle, message: "The flag you chose is the flag of \(countries[senderTag].uppercased()). Your score is \(score).", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        present(ac, animated: true)
+    }
+    
+    func showEndOfGameAlert(){
+        let ac = UIAlertController(title: "Finish!", message: "You answered all questions. Your score is \(score).", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: resetGame))
+        present(ac, animated: true)
+    }
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        var alertTitle: String
+        if sender.tag == correctAnswer {
+            alertTitle = "That's correct!"
+            score += 1
+            numOfQuestionsAnswered += 1
+            updateQuestionsLabel()
+            showCorrectAlert(alertTitle: alertTitle)
+        } else {
+            alertTitle = "Wrong"
+            score -= 1
+            numOfQuestionsAnswered += 1
+            updateQuestionsLabel()
+            showWrongStatus(alertTitle: alertTitle, senderTag: sender.tag)
+        }
     }
 }
