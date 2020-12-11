@@ -11,9 +11,6 @@
  1. Try showing the player's score in the navigation bar, alongside the flag to guess.
  2. Keep track of how many questions have been asked, and show one final alert after they've answered 10.
  3. When someone chooses the wrong flag, tell them their mistake in your alert message.
-
- EXTRA
- 1. Resolve the bug where images sometimes don't load.
  
  */
 
@@ -43,7 +40,7 @@ class ViewController: UIViewController {
     
     // MARK: -- Custom Methods
     func fillTheCountriesArray(){
-        countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "england", "usa"]
+        countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
     }
     
     func setButtonStyles() {
