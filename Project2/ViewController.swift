@@ -7,10 +7,9 @@
 
 /*
  CHALLENGE TIME
- 
- 1. Try showing the player's score in the navigation bar, alongside the flag to guess.
- 2. Keep track of how many questions have been asked, and show one final alert after they've answered 10.
- 3. When someone chooses the wrong flag, tell them their mistake in your alert message.
+
+ 1. Keep track of how many questions have been asked, and show one final alert after they've answered 10.
+ 2. When someone chooses the wrong flag, tell them their mistake in your alert message.
  
  */
 
@@ -60,7 +59,7 @@ class ViewController: UIViewController {
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
-        title = countries[correctAnswer].uppercased()
+        title = "\(countries[correctAnswer].uppercased()) (Current score: \(score))"
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -79,8 +78,4 @@ class ViewController: UIViewController {
         
         present(ac, animated: true)
     }
-    
-
-    // MARK: -- Delegate Methods
 }
-
