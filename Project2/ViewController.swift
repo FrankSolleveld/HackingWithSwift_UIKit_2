@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     // MARK: -- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showScore))
         updateQuestionsLabel()
         if(countries.count == 0) {
             fillTheCountriesArray()
@@ -33,6 +34,12 @@ class ViewController: UIViewController {
     }
     
     // MARK: -- Custom Methods
+    @objc func showScore() {
+        let ac = UIAlertController(title: "Your score", message: "Your current score is \(score).", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
+    
     func updateQuestionsLabel(){
         questionsLabel.text = "You answered \(numOfQuestionsAnswered) out of 10 questions."
     }
@@ -59,7 +66,7 @@ class ViewController: UIViewController {
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
-        title = "\(countries[correctAnswer].uppercased()) (Current score: \(score))"
+        title = "\(countries[correctAnswer].uppercased())"
     }
     
     func resetGame(action: UIAlertAction!) {
