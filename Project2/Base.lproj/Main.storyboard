@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sPS-bA-ErQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sPS-bA-ErQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,6 +18,9 @@
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYf-0O-cbv">
                                 <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yYf-0O-cbv" secondAttribute="height" multiplier="2:1" id="ewh-af-6Af"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oWb-7O-FyY"/>
@@ -25,6 +28,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAL-0P-RUy">
                                 <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iAL-0P-RUy" secondAttribute="height" multiplier="2:1" id="T79-vR-d1A"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lGB-TP-Mhn"/>
@@ -32,6 +38,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-rT-ifK">
                                 <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pfm-rT-ifK" secondAttribute="height" multiplier="2:1" id="g4b-KJ-53N"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oGV-Mq-7b3"/>
@@ -48,10 +57,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="oJZ-55-vy8" firstAttribute="centerX" secondItem="iAL-0P-RUy" secondAttribute="centerX" id="2vJ-Hj-u5J"/>
+                            <constraint firstItem="iAL-0P-RUy" firstAttribute="height" secondItem="yYf-0O-cbv" secondAttribute="height" id="4Wr-fF-ImC"/>
                             <constraint firstItem="oJZ-55-vy8" firstAttribute="top" secondItem="iAL-0P-RUy" secondAttribute="bottom" constant="26" id="786-gP-laO"/>
                             <constraint firstItem="yYf-0O-cbv" firstAttribute="centerX" secondItem="Pfm-rT-ifK" secondAttribute="centerX" id="7FW-e3-VbP"/>
                             <constraint firstItem="yYf-0O-cbv" firstAttribute="top" secondItem="Pfm-rT-ifK" secondAttribute="bottom" constant="30" id="as1-Dd-2pZ"/>
                             <constraint firstItem="iAL-0P-RUy" firstAttribute="top" secondItem="yYf-0O-cbv" secondAttribute="bottom" constant="30" id="bQa-j6-kwP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iAL-0P-RUy" secondAttribute="bottom" constant="20" id="cEO-Sw-slj"/>
+                            <constraint firstItem="yYf-0O-cbv" firstAttribute="height" secondItem="Pfm-rT-ifK" secondAttribute="height" id="cNd-EP-ZnB"/>
                             <constraint firstItem="Pfm-rT-ifK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hd4-Uf-oJL"/>
                             <constraint firstItem="iAL-0P-RUy" firstAttribute="centerX" secondItem="yYf-0O-cbv" secondAttribute="centerX" id="hp6-I3-UjC"/>
                             <constraint firstItem="Pfm-rT-ifK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="yva-AD-Vux"/>
